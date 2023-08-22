@@ -32,30 +32,35 @@ function Home() {
       {loading ? (
         <Lottie className="mt-auto" animationData={Loading} />
       ) : (
-        <div className="container">
-          <div className="animate__animated animate__fadeInDown w-100 p-5 text-center mx-auto">
-           <div>
-           <img
-              src="/images/logo.png"
-              className="w-100"
-              alt=""
-            />
-            <img src="/images/balls.png" className="second__logo animate__animated animate__fadeInDown animate__delay-1s" width={150} alt="" />
-            <img src="/images/balls-1.png" className="third__logo animate__animated animate__fadeInDown animate__delay-1s" width={150} alt="" />
+        <>
+      <div className="container content-container">
+  <div className="animate__animated animate__fadeInDown w-100 p-5 text-center mx-auto">
+    <div>
+      <img src="/images/logo.png" className="w-100" alt="" />
+      <img
+        src="/images/balls.png"
+        className="second__logo animate__animated animate__fadeInDown animate__delay-1s"
+        width={150}
+        alt=""
+      />
+      <img
+        src="/images/balls-1.png"
+        className="third__logo animate__animated animate__fadeInDown animate__delay-1s"
+        width={150}
+        alt=""
+      />
+    </div>
+  </div>
+  <Carousel />
+  <div className="d-flex justify-content-between flex-column mb-5 gap-3">
+    <Dice />
+    <LeaderboardMenu />
+    <Log />
+  </div>
+</div>
+<BottomNavbar />
 
-           </div>
-           
-          </div>
-          <Carousel />
-          <div className="d-flex justify-items-between flex-column gap-3">
-            <Dice/>
-          <LeaderboardMenu/>
-          <Log/>
-          
-          </div>
-         
-          <BottomNavbar />
-        </div>
+        </>
       )}
     </>
   );
