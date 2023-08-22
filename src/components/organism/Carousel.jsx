@@ -34,7 +34,6 @@ function Carousel() {
       const imageStyle = {
         width: '100%',
         height: '100%',
-        objectFit: 'cover'
       };
       const contentStyle = {
         position: 'absolute',
@@ -49,7 +48,7 @@ function Carousel() {
       const containerStyle = {
         position: 'relative',
         width: '100%',
-        height: '300px', 
+        height: '250px', 
         backgroundColor:'white'// Set the desired height
       };
 
@@ -71,7 +70,7 @@ function Carousel() {
 
       
   return (
-    <div className='carousel-wrapper mb-3'>
+    <div className='carousel-wrapper mb-5 animate__animated animate__fadeInDown'>
     <OwlCarousel className='owl-theme' {...options}>
       {
       

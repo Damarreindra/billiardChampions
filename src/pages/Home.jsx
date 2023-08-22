@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getListPlayer } from "../actions/playerAction";
 import Log from "../components/organism/Log";
 import LeaderboardMenu from "../components/organism/LeaderboardMenu";
+import Dice from "../components/organism/Dice";
 
 function Home() {
   const dispatch = useDispatch();
@@ -33,16 +34,24 @@ function Home() {
       ) : (
         <div className="container">
           <div className="animate__animated animate__fadeInDown w-100 p-5 text-center mx-auto">
-            <img
-              src="/images/billiardChamps-Orange.png"
+           <div>
+           <img
+              src="/images/logo.png"
               className="w-100"
               alt=""
             />
+            <img src="/images/balls.png" className="second__logo animate__animated animate__fadeInDown animate__delay-1s" width={150} alt="" />
+            <img src="/images/balls-1.png" className="third__logo animate__animated animate__fadeInDown animate__delay-1s" width={150} alt="" />
+
+           </div>
+           
           </div>
           <Carousel />
           <div className="d-flex justify-items-between flex-column gap-3">
+            <Dice/>
           <LeaderboardMenu/>
           <Log/>
+          
           </div>
          
           <BottomNavbar />

@@ -37,8 +37,8 @@ function Leaderboard() {
           alt=""
           style={{ position: "absolute", top: 0, left: 0 }}
         />
-        <h1 className="card__name__500">This is</h1>
-        <h1 className="card__name">Leaderboard</h1>
+        <h1 className="card__name__500 animate__animated animate__fadeInDown">This is</h1>
+        <h1 className="card__name animate__animated animate__fadeInDown">Leaderboard</h1>
       </div>
       <div className="container p-3 mt-5 d-flex flex-column gap-4">
       {sortedLeaderboard.map((player, index) => (
