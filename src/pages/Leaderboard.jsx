@@ -7,9 +7,7 @@ import { getListPlayer } from "../actions/playerAction";
 function Leaderboard() {
   const dispatch = useDispatch();
   const [data, setData] = useState([])
-  const [rendra, setRendra] = useState([])
-  const [rehan, setRehan] = useState([])
-  const [alpat, setAlpat] = useState([])
+  
   useEffect(() => {
     dispatch(getListPlayer());
   }, [dispatch]);
