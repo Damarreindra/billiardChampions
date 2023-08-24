@@ -5,6 +5,7 @@ export const GET_GAMES = "GET_GAMES"
 export const ADD_GAMES = "ADD_GAMES"
 export const ADD_MATCHES = "ADD_MATCHES"
 export const GET_MATCHES = "GET_MATCHES"
+export const ADD_WINNER = "ADD_WINNER"
 
 export const addGames = (data) =>{
       return (dispatch)=>{
@@ -52,12 +53,58 @@ export const addGames = (data) =>{
       }
   }
 
+  export const addWinner = (data) =>{
+    const {id} = data.id
+      return (dispatch)=>{
+          dispatch({
+              type : ADD_MATCHES,
+              payload: {
+                  loading: true,
+                  data: false,
+                  errorMessage: false
+              }
+          })
+      
+          axios({
+              
+              method : "POST",
+              url :  `https://64de1471825d19d9bfb20618.mockapi.io/games/${id}/matches`,
+              timeout: 120000,
+              data: data,
+            
+             
+          })
+              .then((res)=>{
+                  dispatch({
+                    
+                      type : ADD_MATCHES,
+                      payload: {
+                          loading: false,
+                          data: res.data,
+                          errorMessage: false
+                      }
+                  })
+              }).then(alert(`Match ${id} The Winner is ${data.winner}`))
+              .catch((err)=>{
+                  dispatch({
+                      type : ADD_GAMES,
+                      payload: {
+                          loading: false,
+                          data: false,
+                          errorMessage: err.message
+                      }
+                  })
+              })
+  
+  
+      }
+  }
+
   export const addMatches = (data) =>{
   const {id} = data.id
-  console.log(id);
     return (dispatch)=>{
         dispatch({
-            type : ADD_MATCHES,
+            type : ADD_WINNER,
             payload: {
                 loading: true,
                 data: false,
@@ -77,7 +124,7 @@ export const addGames = (data) =>{
             .then((res)=>{
                 dispatch({
                   
-                    type : ADD_MATCHES,
+                    type : ADD_WINNER,
                     payload: {
                         loading: false,
                         data: res.data,
@@ -87,7 +134,7 @@ export const addGames = (data) =>{
             })
             .catch((err)=>{
                 dispatch({
-                    type : ADD_GAMES,
+                    type : ADD_WINNER,
                     payload: {
                         loading: false,
                         data: false,

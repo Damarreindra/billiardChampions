@@ -14,7 +14,12 @@ body{
   font-weight: bold;
   border: 2px solid #333;
 }
-
+.game-title{
+  background-image: url('../public/images/balls-1.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 80px;
+}
 .games__history{
   background-image: url('../public/images/billiardTable.png');
   background-position: right;
