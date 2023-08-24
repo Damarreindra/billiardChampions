@@ -15,6 +15,13 @@ body{
   border: 2px solid #333;
 }
 
+.games__history{
+  background-image: url('../public/images/billiardTable.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 80px;
+}
+
 .rolling {
   animation: rollingAnimation 1s infinite;
 }

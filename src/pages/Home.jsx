@@ -9,9 +9,11 @@ import { getListPlayer } from "../actions/playerAction";
 import Log from "../components/organism/Log";
 import LeaderboardMenu from "../components/organism/LeaderboardMenu";
 import Dice from "../components/organism/Dice";
+import { Link } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true)
  
   const { getListPlayerResult } =
     useSelector((state) => state.PlayerReducer);
@@ -20,13 +22,13 @@ function Home() {
       dispatch(getListPlayer());
     }, [dispatch]);
 
+    useEffect(()=>{
+      if(getListPlayerResult){
+        setLoading(false)
+      }
+    },[getListPlayerResult])
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-   if(getListPlayerResult){
-    setLoading(false)
-   }
-  }, [getListPlayerResult]);
+
   return (
     <>
       {loading ? (
@@ -53,9 +55,10 @@ function Home() {
   </div>
   <Carousel />
   <div className="d-flex justify-content-between flex-column mb-5 gap-3">
+   
     <Dice />
     <LeaderboardMenu />
-    <Log />
+    <Link to={'/history'} className="text-black" style={{ textDecoration:'none' }}> <Log /> </Link>
   </div>
 </div>
 <BottomNavbar />
