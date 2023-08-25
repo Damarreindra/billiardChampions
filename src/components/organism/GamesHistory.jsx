@@ -22,14 +22,13 @@ function GamesHistory() {
     {
         
         getGameResult ? getGameResult.map((e)=>{
-          
             return(
               <Link style={{ textDecoration:'none' }} className='text-black' to={`/game/${e.id}`}>
                 <div className='container'>
                    
                 <div  className='games__history p-3 mt-3 rounded bg-white'>
                     <h1 className='card__name'>Game {e.id}</h1>
-                    <small className='card__name__600'>Winner : {e.winner}</small>
+                    <p className='card__name__600'>Winner : {e.winner.map((e)=>e.name)} | {e.winner.map((e)=>e.points)} Poin </p>               
                 </div>
                 </div>
                 </Link>

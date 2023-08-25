@@ -3,6 +3,8 @@ import { ADD_GAMES } from "../../actions/playerAction"
 import { GET_GAMES } from "../../actions/playerAction"
 import { GET_MATCHES } from "../../actions/playerAction"
 import { ADD_WINNER } from "../../actions/playerAction"
+import { ADD_LOSER } from "../../actions/playerAction"
+import { ADD_WINS } from "../../actions/playerAction"
 
 const initialState ={
     getListPlayerResult: false,
@@ -25,6 +27,14 @@ const initialState ={
     addWinnerLoading:false,
     addWinnerError:false,
 
+    addLoserResult:false,
+    addLoserLoading:false,
+    addLoserError:false,
+
+    addWinsResult:false,
+    addWinsLoading:false,
+    addWinsError:false,
+
 }
 
 
@@ -36,6 +46,20 @@ const player = (state = initialState, action) =>{
                 addGamesResult: action.payload.data,
                 addGamesLoading: action.payload.loading,
                 addGamesError: action.payload.errorMessage,
+            }
+            case ADD_WINS:
+            return{
+                ...state,
+                addWinsResult: action.payload.data,
+                addWinsLoading: action.payload.loading,
+                addWinsError: action.payload.errorMessage,
+            }
+            case ADD_LOSER:
+            return{
+                ...state,
+                addLoserResult: action.payload.data,
+                addLoserLoading: action.payload.loading,
+                addLoserError: action.payload.errorMessage,
             }
             case ADD_WINNER:
             return{
