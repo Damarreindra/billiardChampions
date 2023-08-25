@@ -28,7 +28,10 @@ function GamesHistory() {
                    
                 <div  className='games__history p-3 mt-3 rounded bg-white'>
                     <h1 className='card__name'>Game {e.id}</h1>
-                    <p className='card__name__600'>Winner : {e.winner.map((e)=>e.name)} | {e.winner.map((e)=>e.points)} Poin </p>               
+                    <p className='card__name'>Winner : {e.winner.map((e)=>e.name)} | {e.winner.map((e)=>e.points)} Poin </p>               
+                    <p className='card__name__600'> Losers : </p>
+                    <p>{e.losers.map((e)=>e.name)[0]} | {e.losers.map((e)=>e.points)[0]} Poin</p>
+                  <p> {e.losers.map((e)=>e.name)[1]} | {e.losers.map((e)=>e.points)[1]} Poin</p>
                 </div>
                 </div>
                 </Link>

@@ -5,7 +5,7 @@ import Carousel from "../components/organism/Carousel";
 import BottomNavbar from "../components/organism/Navbar";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getListPlayer } from "../actions/playerAction";
+import { addWins, getListPlayer } from "../actions/playerAction";
 import Log from "../components/organism/Log";
 import LeaderboardMenu from "../components/organism/LeaderboardMenu";
 import Dice from "../components/organism/Dice";
@@ -22,11 +22,7 @@ function Home() {
       dispatch(getListPlayer());
     }, [dispatch]);
 
-    useEffect(() => {
-      if(addWinsResult){
-      dispatch(getListPlayer());
-    }
-    }, [addWinsResult,dispatch]);
+   
 
     useEffect(()=>{
       if(getListPlayerResult){

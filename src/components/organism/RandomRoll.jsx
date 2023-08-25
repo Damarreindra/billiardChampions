@@ -49,7 +49,16 @@ function RandomRoll() {
     dispatch(getListPlayer());
   }, [dispatch]);
 
-  const { getListPlayerResult } = useSelector((state) => state.PlayerReducer);
+  const { getListPlayerResult, addWinsResult } = useSelector((state) => state.PlayerReducer);
+
+  useEffect(() => {
+    if(addWins){
+    dispatch(getListPlayer());
+  }
+  }, [addWinsResult,dispatch]);
+
+  
+  
 
   useEffect(() => {
     if (getListPlayerResult) {
