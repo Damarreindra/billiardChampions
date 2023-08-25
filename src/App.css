@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
 body{
- 
+  overflow:hidden;
   background-color: black;
 }
 .dice {
@@ -149,6 +149,8 @@ body{
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
 
 .App-header {
   background-color: #282c34;
