@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import Game from "./pages/Game";
 import History from "./pages/History";
+import Landing from "./pages/Landing";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   return (
    <Router>
     <Routes>
-      <Route path="/" exact/>
+      <Route path="/" exact element={<Landing/>}/>
       <Route path="/game/:id" exact element={<Game/>}/>
       <Route path="/history" exact element={<History/>}/>
       <Route path="/leaderboard" exact element={<Leaderboard/>}/>
