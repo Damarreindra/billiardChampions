@@ -15,12 +15,18 @@ function Home() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
  
-  const { getListPlayerResult } =
+  const { getListPlayerResult, addWinsResult } =
     useSelector((state) => state.PlayerReducer);
 
     useEffect(() => {
       dispatch(getListPlayer());
     }, [dispatch]);
+
+    useEffect(() => {
+      if(addWinsResult){
+      dispatch(getListPlayer());
+    }
+    }, [addWinsResult,dispatch]);
 
     useEffect(()=>{
       if(getListPlayerResult){
