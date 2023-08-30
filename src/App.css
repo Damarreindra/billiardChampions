@@ -19,12 +19,25 @@ body{
   background-repeat: no-repeat;
   background-size: 80px;
 }
-.games__history{
-  background-image: url('../public/images/billiardTable.png');
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 80px;
+/* Style for the winner image container */
+.winner-image-container {
+    position: relative;
+    display: inline-block;
 }
+
+/* Style for the "Winner" stamp */
+.winner-stamp {
+    position: absolute;
+    top: 65px; /* Adjust as needed */
+    left: 40px; /* Adjust as needed */
+    padding: 4px 8px;
+   
+}
+
+.grayed__image{
+  filter: grayscale(50%);
+}
+
 
 .rolling {
   animation: rollingAnimation 1s infinite;
