@@ -14,13 +14,33 @@ function RandomRoll() {
   const [data, setData] = useState([]);
   const [winners, setWinners] = useState([]);
   const [losers, setLosers] = useState([]);
-  const [oldData, setOldData] = useState([]);
+  const [rolledNumber, setRolledNumber] = useState(null);
+  const [rolling, setRolling] = useState(false);
+  const [isVisible, setIsVisible] = useState(true)
+
+  const toggleVisible = () =>{
+    setIsVisible(false)
+  }
+
+  const rollNumber = () => {
+    setRolling(true);
+
+    // Simulate a delay for the animation
+    setTimeout(() => {
+      const randomNumber = Math.floor(Math.random() * 3) + 1;
+      setRolledNumber(randomNumber);
+      setRolling(false);
+    }, 1000); // Adjust the delay as needed
+  };
+
 
   const handleInputChange = (index, value) => {
     const updatedInputValues = [...inputValues];
     updatedInputValues[index] = parseInt(value);
     setInputValues(updatedInputValues);
   };
+
+ 
 
   const findWinner = () => {
     const maxPoints = Math.max(...inputValues);
@@ -110,6 +130,22 @@ function RandomRoll() {
 
   return (
     <>
+  {
+    isVisible && 
+    <div className="d-flex mb-5 bg-white rounded p-3 justify-content-center flex-column">
+  <button onClick={toggleVisible} class="btn-close"></button>
+
+      <h1 className="text-center">Random Number Generator</h1>
+      <div className={`mx-auto rounded dice ${rolling ? 'rolling' : ''}`}>
+        {rolledNumber !== null ? <p>{rolledNumber}</p> : <p>?</p>}
+      </div>
+      <button className="mt-3 btn btn-danger" onClick={rollNumber} disabled={rolling}>
+        {rolling ? 'Rolling...' : 'Roll the Dice'}
+      </button>
+    </div>
+  }
+  
+    
       <div className="game-title d-flex bg-white rounded justify-content-center p-3">
         <h1 className="card__name ">Game {id}</h1>
       </div>

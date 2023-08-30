@@ -33,7 +33,8 @@ function GamesHistory() {
 <h1 className='card__name text-center text-white'>Games History</h1>
     {
         
-        getGameResult ? getGameResult.map((e)=>{
+        getGameResult && player ? getGameResult.map((e)=>{
+          
           const winnerPlayers = player.filter((player) => e.winner.map((item) => item.id).includes(player.id));
             return(
               <Link style={{ textDecoration:'none' }} className='text-black' to={`/game/${e.id}`}>
@@ -49,7 +50,7 @@ function GamesHistory() {
                   <p> {e.losers.map((e)=>e.name)[1]} | {e.losers.map((e)=>e.points)[1]} Poin</p>
                   </div>
                   <div className='winner-image-container'>
-                   <img className='grayed__image' src={winnerPlayers.map((e)=>e.avatar)} width={100} alt="" />
+                   <img className='grayed__image' srcSet={winnerPlayers.map((e)=>e.avatar)} width={100} alt="" />
                    <div className="winner-stamp"><img src="/images/medal.png" width={50} alt="" srcset="" /></div>
                   </div>
                   </div>
