@@ -12,6 +12,7 @@ import Dice from "../components/organism/Dice";
 import { Link } from "react-router-dom";
 
 function Home() {
+ 
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true)
  
@@ -22,8 +23,6 @@ function Home() {
       dispatch(getListPlayer());
     }, [dispatch]);
 
-   
-
     useEffect(()=>{
       if(getListPlayerResult){
         setLoading(false)
@@ -32,30 +31,43 @@ function Home() {
 
 
   return (
-    <>
+    <div>
       {loading ? (
+        <div className="d-flex align-items-center">
         <Lottie className="mt-auto" animationData={Loading} />
+        </div>
       ) : (
         <>
       <div className="container content-container">
-  <div className="animate__animated animate__fadeInDown w-100 p-5 text-center mx-auto">
+  <div className="w-100 p-5 text-center mx-auto">
     <div>
       <img src="/images/logo.png" className="w-100" alt="" />
+   
       <img
         src="/images/balls.png"
-        className="second__logo animate__animated animate__fadeInDown animate__delay-1s"
+        className="second__logo "
         width={150}
         alt=""
       />
+      
       <img
         src="/images/balls-1.png"
-        className="third__logo animate__animated animate__fadeInDown animate__delay-1s"
+        className="third__logo"
         width={150}
         alt=""
       />
     </div>
   </div>
-  <Carousel />
+  
+   
+    
+    
+    <Carousel/>
+    
+    
+    
+  
+
   <div className="d-flex justify-content-between flex-column mb-5 gap-3">
    
     <Dice />
@@ -67,7 +79,7 @@ function Home() {
 
         </>
       )}
-    </>
+    </div>
   );
 }
 

@@ -132,7 +132,7 @@ function RandomRoll() {
     <>
   {
     isVisible && 
-    <div className="d-flex mb-5 bg-white rounded p-3 justify-content-center flex-column">
+    <div className="d-flex mb-5 bg-white shadow rounded p-3 justify-content-center flex-column">
   <button onClick={toggleVisible} class="btn-close"></button>
 
       <h1 className="text-center">Random Number Generator</h1>
@@ -146,12 +146,13 @@ function RandomRoll() {
   }
   
     
-      <div className="game-title d-flex bg-white rounded justify-content-center p-3">
+      <div className="game-title d-flex bg-white shadow rounded justify-content-center p-3">
         <h1 className="card__name ">Game {id}</h1>
       </div>
 
       {
-        <div className="d-flex justify-content-center flex-column">
+       
+        <div className="d-flex shadow p-3 rounded justify-content-center flex-column">
           {
           
           data.map((player, index) => (
@@ -171,27 +172,13 @@ function RandomRoll() {
               </div>
             </div>
           ))}
-          <div className="container bg-white rounded p-3 text-center mt-3">
-            <h2 className="card__name">Current Winner:</h2>
-            {winners.map((winner, index) => (
-            <p key={index}>{winner.name}</p>
-          ))}
-           
-          </div>
-
-          <div className="container bg-white rounded p-3 text-center mt-3">
-            <h2 className="card__name">Current Losers:</h2>
-            {losers.map((loser, index) => (
-            <p key={index}>{loser.name}</p>
-          ))}
-           
-           
-
-          </div>
-          <button className="mt-3 btn btn-block btn-success" onClick={handlePostWinnerAndLosers}>
+          
+          <button className="btn  mt-3 btn-success" onClick={handlePostWinnerAndLosers}>
               Post Winner
             </button>
         </div>
+          
+            
       }
     </>
   );

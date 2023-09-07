@@ -16,7 +16,7 @@ function Dice() {
   
   return (
 
-    <div onClick={()=>handleSubmit()} className='animate__animated animate__backInUp container rounded d-flex align-items-center card__menu'>
+    <div onClick={()=>handleSubmit()} className='animate__animated animate__backInUp container shadow rounded d-flex align-items-center card__menu'>
      <img src="/images/billiard.png" width={100} alt="" />           
  <h1 className='menu__name text-black'>Let's Play Some</h1>
     </div>

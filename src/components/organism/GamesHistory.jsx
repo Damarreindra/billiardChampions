@@ -37,10 +37,10 @@ function GamesHistory() {
           
           const winnerPlayers = player.filter((player) => e.winner.map((item) => item.id).includes(player.id));
             return(
-              <Link style={{ textDecoration:'none' }} className='text-black' to={`/game/${e.id}`}>
+              <Link style={{ textDecoration:'none' }} className='text-black ' to={`/game/${e.id}`}>
                 <div className='container'>
                    
-                <div  className='games__history  align-items-center p-3 mt-3 rounded bg-white'>
+                <div  className='games__history align-items-center p-3 mt-3 rounded bg-white'>
                 <h1 className='card__name text-center'>Game {e.id}</h1>
                 <div className='d-flex align-items-center'>
                     <div className=''>
