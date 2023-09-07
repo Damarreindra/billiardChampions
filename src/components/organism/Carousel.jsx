@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import $ from 'jquery';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListPlayer } from '../../actions/playerAction';
+import { Skeleton,Box, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 function Carousel() {
   const dispatch = useDispatch();
@@ -12,6 +12,9 @@ function Carousel() {
   const { getListPlayerResult, getListPlayerLoading, getListPlayerError } =
     useSelector((state) => state.PlayerReducer);
  
+    
+   
+  
 
   useEffect(() => {
     dispatch(getListPlayer());
@@ -23,22 +26,17 @@ function Carousel() {
     }
   }, [getListPlayerResult]);
 
-      const overlayStyle = {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.2)', // Adjust opacity as needed
-      };
+     
       const imageStyle = {
-        width: '100%',
-        height: '100%',
+        width: '70%',
+        height: '90%',
+        bottom:0,
+        position:'absolute'
       };
       const contentStyle = {
         position: 'absolute',
         top: '50%',
-        left: '50%',
+        left: '75%',
         transform: 'translate(-50%, -50%)',
         color: '#fff',
         zIndex: 1,
@@ -49,7 +47,6 @@ function Carousel() {
         position: 'relative',
         width: '100%',
         height: '250px', 
-        backgroundColor:'white'// Set the desired height
       };
 
     const options = {
@@ -77,16 +74,16 @@ function Carousel() {
         players ? 
         players.map((x)=>{
           return(
-            <div style={containerStyle} className='rounded'>
-            <div style={overlayStyle}></div>
+            <div style={containerStyle} className='profile__card bg-light rounded'>
             <img
-              src={x.avatar} // Replace with your image URL
+              src={x.avatar} 
               alt="Background"
               style={imageStyle}
+              className=''
             />
             <div style={contentStyle}>
-              <h2 className='card__name'>{x.name}</h2>
-              <p className='card__wins'>{x.wins} Wins</p>
+              <h2 className='text-dark card__name'>{x.name}</h2>
+              <p className='text-dark card__wins'>{x.wins} Wins</p>
               {
                 x.wins <= 0  ?  <p className='card__wins'>WKWK AYAM</p> : ''
               }
@@ -95,7 +92,10 @@ function Carousel() {
           )
         })
        
-      : ""
+      : <Box padding='6' boxShadow='lg' bg='white'>
+      <SkeletonCircle size='10' />
+      <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
+    </Box>
       }
    
    

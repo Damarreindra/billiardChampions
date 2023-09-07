@@ -71,7 +71,7 @@ body{
   top: 2%;
 }
 .card__menu{
-  background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha (opacity) value */
+  background-color: rgba(255, 255, 255, 1); /* Adjust the alpha (opacity) value */
 
   height: 80px;
 }
