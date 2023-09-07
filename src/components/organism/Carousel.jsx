@@ -66,7 +66,7 @@ function Carousel() {
   };
 
   return (
-    <div className="carousel-wrapper mb-5">
+    <div className="carousel-wrapper shadow mb-5">
       <OwlCarousel className="owl-theme" {...options}>
         {getListPlayerResult ? (
           getListPlayerResult.map((x, index) => {
