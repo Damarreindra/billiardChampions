@@ -29,16 +29,16 @@ function GamesHistory() {
  
     
   return (
-<div className='container mt-5'>
-<h1 className='card__name text-center text-white'>Games History</h1>
+<div className='container p-3'>
     {
         
         getGameResult && player ? getGameResult.map((e)=>{
           
           const winnerPlayers = player.filter((player) => e.winner.map((item) => item.id).includes(player.id));
             return(
+              
               <Link style={{ textDecoration:'none' }} className='text-black ' to={`/game/${e.id}`}>
-                <div className='container'>
+                <div className='container shadow rounded'>
                    
                 <div  className='games__history align-items-center p-3 mt-3 rounded bg-white'>
                 <h1 className='card__name text-center'>Game {e.id}</h1>

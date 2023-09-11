@@ -7,7 +7,7 @@ function History() {
     <>
    
 <GamesHistory/>
-
+<BottomNavbar/>
     </>
   )
 }
