@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
-body{
-  background-color: black;
-}
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=Poppins:wght@400;600;700&family=Ubuntu:ital,wght@1,500&display=swap');
+
 .dice {
   width: 100px;
   height: 100px;
@@ -23,20 +21,22 @@ body{
 .winner-image-container {
     position: relative;
     display: inline-block;
+ 
 }
 
 /* Style for the "Winner" stamp */
 .winner-stamp {
     position: absolute;
-    top: 65px; /* Adjust as needed */
-    left: 40px; /* Adjust as needed */
+    top: 95px; /* Adjust as needed */
+    left: 55px; /* Adjust as needed */
     padding: 4px 8px;
    
 }
 
-.grayed__image{
-  filter: grayscale(50%);
+.history__card__title{
+  font-family: 'Ubuntu', sans-serif;
 }
+
 
 
 .rolling {
@@ -177,6 +177,12 @@ body{
 
 .App-link {
   color: #61dafb;
+}
+.odd{
+  background-color: #e67d3c;
+}
+.even{
+  background-color: rgb(246, 168, 65);
 }
 
 @keyframes App-logo-spin {

@@ -26,7 +26,7 @@ function Leaderboard() {
   return (
     <>
       <div
-        className="container p-5 bg-white text-center"
+        className="container p-5 bg-white text-center shadow"
         style={{ position: "relative" }}
       >
         <img
