@@ -22,6 +22,8 @@ function GamesHistory() {
     <div className="container p-3">
       {getGameResult && getListPlayerResult ? (
         getGameResult.map((e, index) => {
+          const date = new Date(e.createdAt);
+          const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
           let podiumClassName = "";
           if (e.id % 2 === 0) {
             podiumClassName +=
@@ -34,11 +36,7 @@ function GamesHistory() {
             e.winner.map((item) => item.id).includes(player.id)
           );
           return (
-            <Link
-              style={{ textDecoration: "none" }}
-              className="text-white "
-              to={`/game/${e.id}`}
-            >
+          
               <div className={podiumClassName}>
                 <div
                   key={e.id}
@@ -59,11 +57,13 @@ function GamesHistory() {
                         {e.losers.map((e) => e.name)[0]} (
                         {e.losers.map((e) => e.points)[0]} Poin)
                       </p>
+                      
                       <p>
                         {" "}
                         {e.losers.map((e) => e.name)[1]} (
                         {e.losers.map((e) => e.points)[1]} Poin)
                       </p>
+                      <small>{formattedDate}</small>
                     </div>
                     <div className="winner-image-container">
                       <img
@@ -84,7 +84,7 @@ function GamesHistory() {
                   </div>
                 </div>
               </div>
-            </Link>
+        
           );
         })
       ) : (
