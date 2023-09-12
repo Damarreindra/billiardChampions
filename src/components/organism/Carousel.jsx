@@ -25,7 +25,6 @@ function Carousel() {
     }
   }, [getListPlayerResult]);
 
-  console.log(players);
 
   const imageStyle = {
     width: "70%",
