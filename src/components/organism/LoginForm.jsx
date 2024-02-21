@@ -1,36 +1,49 @@
 import React from "react";
+import {
+  Container,
+  Box,
+  Text,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+} from "@chakra-ui/react";
+import Lottie from "lottie-react";
+import BilliardBall from "../lottiefiles/billiardBall.json";
 
 function LoginForm() {
   return (
-    <>
-      <div className="container text-center p-5 bg-white rounded w-auto">
-        <img src="/images/8ballfire.png" className="w-25" alt="" />
-        <h1>Welcome Back!</h1>
-        <small>Please enter your details</small>
-        <form className="p-3" action="">
-          <div className="form-floating mb-3">
-            <input
-              type="email"
-              className="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-            />
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div className="form-floating">
-            <input
-              type="password"
-              className="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-            />
-            <label for="floatingPassword">Password</label>
-          </div>
-          <button className="btn btn-dark mt-3">Login</button>
-        </form>
-        <small>Forgot Password ? <span className="fw-bold">IDC DICKHEAD</span></small>
-      </div>
-    </>
+    <Container centerContent p={5} bg="white" rounded="md">
+      <Box width={"100px"} height={"100px"} >
+      <Lottie animationData={BilliardBall} />
+      </Box>
+      <img src="/images/billiardChamps.png" className="w-75" alt="" />
+      <Box textAlign="center">
+        <Text fontSize="2xl" fontWeight="bold">
+          Welcome Back!
+        </Text>
+        <Text>Please enter your details</Text>
+      </Box>
+      <Box as="form" mt={5} width="100%" maxWidth="md">
+        <FormControl id="email" mb={3}>
+          <FormLabel>Email address</FormLabel>
+          <Input type="email" placeholder="name@example.com" />
+        </FormControl>
+        <FormControl id="password" mb={3}>
+          <FormLabel>Password</FormLabel>
+          <Input type="password" placeholder="Password" />
+        </FormControl>
+        <Button colorScheme="red" mt={3} width="100%">
+          Login
+        </Button>
+      </Box>
+      <Text mt={3}>
+        Forgot Password ?{" "}
+        <Text as="span" fontWeight="bold">
+          IDC DICKHEAD
+        </Text>
+      </Text>
+    </Container>
   );
 }
 
