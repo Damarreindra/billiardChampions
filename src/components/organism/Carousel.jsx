@@ -83,7 +83,7 @@ function Carousel() {
                 />
                 <div style={contentStyle}>
                   <h2 className="text-dark card__name">{x.name}</h2>
-                  <p className="text-dark card__wins">{x.wins} Wins</p>
+                  <h5 className="text-dark card__wins">{x.wins} Wins</h5>
                   {x.wins <= 0 ? <p className="card__wins">WKWK AYAM</p> : ""}
                 </div>
               </div>

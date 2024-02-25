@@ -1,4 +1,3 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from "./firebaseConfig";
 import { useNavigate } from "react-router-dom";
 

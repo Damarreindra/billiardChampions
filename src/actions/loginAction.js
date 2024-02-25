@@ -8,6 +8,7 @@ export const login = (email, password) => (dispatch) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         localStorage.setItem('zxc9238[0]-2Token', "KIMBEK");
+        console.log("memekl");
         resolve(true);
       })
       .catch(() => {
