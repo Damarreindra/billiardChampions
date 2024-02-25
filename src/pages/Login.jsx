@@ -4,7 +4,6 @@ import LoginForm from '../components/organism/LoginForm'
 function Login() {
   return (
     <>
-   
     <LoginForm/>
     </>
   )

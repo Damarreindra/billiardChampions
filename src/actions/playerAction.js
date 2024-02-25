@@ -19,15 +19,12 @@ export const addGames = (data) =>{
                   errorMessage: false
               }
           })
-      
           axios({
               
               method : "POST",
               url : "https://64de1471825d19d9bfb20618.mockapi.io/games",
               timeout: 120000,
-              data: data,
-            
-             
+              data: data, 
           })
               .then((res)=>{
                   dispatch({

@@ -6,10 +6,11 @@ import Leaderboard from "./pages/Leaderboard";
 import Game from "./pages/Game";
 import History from "./pages/History";
 import Landing from "./pages/Landing";
+import { Navigate } from "react-router-dom";
 
 
 function App() {
- 
+  const token = localStorage.getItem("zxc9238[0]-2Token")
   return (
    <Router>
     <Routes>
@@ -18,7 +19,9 @@ function App() {
       <Route path="/history" exact element={<History/>}/>
       <Route path="/leaderboard" exact element={<Leaderboard/>}/>
       <Route path="/login" exact element={<Login/>}/>
-      <Route path="/home" exact element={<Home/>}/>
+      {/* <Route path="/home" exact element={<Home/>}/> */}
+      
+      <Route path="/home" element={token ? <Home /> : <Navigate to="/login" />} />
     </Routes>
    </Router>
   );
