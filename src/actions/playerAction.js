@@ -35,7 +35,7 @@ export const addGames = (data) =>{
                           data: res.data,
                           errorMessage: false
                       }
-                  }).then(window.location=`/game/${res.data.id}`)
+                  }).then(window.location=`/home/game/${res.data.id}`)
               })
               .catch((err)=>{
                   dispatch({

@@ -1,21 +1,19 @@
-import React from 'react'
-import BottomNavbar from '../components/organism/Navbar'
-import PlayerPageMenu from '../components/organism/PlayerPageMenu'
-import Hero from '../components/organism/Hero'
-import { Box } from '@chakra-ui/layout'
+import React from "react";
+import BottomNavbar from "../components/organism/Navbar";
+import PlayerPageMenu from "../components/organism/PlayerPageMenu";
+import Hero from "../components/organism/Hero";
+import { Flex } from "@chakra-ui/layout";
 
 function Player() {
   return (
     <>
-              <Box className="container content-container">
-
-    <Hero/>
-<PlayerPageMenu/>
-
-</Box>
-<BottomNavbar/>
+     <Hero />
+      <Flex flexDir={'column'} paddingTop={20} paddingLeft={10} paddingRight={10}> 
+        <PlayerPageMenu/>
+      </Flex>
+      <BottomNavbar />
     </>
-  )
+  );
 }
 
-export default Player
+export default Player;

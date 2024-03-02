@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addGames } from '../../actions/playerAction';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, Flex, Link, IconButton } from '@chakra-ui/react';
-import { FaHome, FaPlus,  } from 'react-icons/fa';
+import { FaHome, FaPlus,} from 'react-icons/fa';
 import { FaRankingStar } from "react-icons/fa6";
 
 
@@ -24,6 +24,7 @@ const BottomNavbar = () => {
       className="navbar navbar-expand-lg navbar-light bg-light sticky-bottom half-height-navbar"
       justify="center"
       align="center"
+      style={{ position: 'fixed', bottom: 0, width: '100%', zIndex: 999 }}
     >
       <Flex className="container-fluid" justify="center" align="center">
         <Flex className="icons-container w-100" justify="space-between" px={5}>
