@@ -1,66 +1,27 @@
-import React, { useEffect, useState } from "react";
-import Loading from "../components/lottiefiles/loading.json";
-import Lottie from "lottie-react";
-import Carousel from "../components/organism/Carousel";
-import BottomNavbar from "../components/organism/Navbar";
-import { useDispatch, useSelector } from "react-redux";
-import { addWins, getListPlayer } from "../actions/playerAction";
-import Log from "../components/organism/Log";
-import LeaderboardMenu from "../components/organism/LeaderboardMenu";
-import Dice from "../components/organism/Dice";
-import { Link } from "react-router-dom";
-import { Box, Center, Image, Link as ChakraLink } from "@chakra-ui/react";
-import Players from "../components/organism/Players";
-import Hero from "../components/organism/Hero";
+import React from 'react'
+import Layout from '../components/Layout'
+import Carousel from '../components/Carousel'
+import Menu from '../components/Menu'
+import { motion } from 'framer-motion'
+
 
 function Home() {
-  const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
-
-  const { getListPlayerResult, addWinsResult } = useSelector(
-    (state) => state.PlayerReducer
-  );
-
-  useEffect(() => {
-    dispatch(getListPlayer());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (getListPlayerResult) {
-      setLoading(false);
-    }
-  }, [getListPlayerResult]);
-
   return (
-    <Box>
-      {loading ? (
-        <Center>
-          <Lottie animationData={Loading} />
-        </Center>
-      ) : (
-        <>
-          <Box className="container content-container">
-            <Hero/>
-            <Carousel />
-            <Box className="d-flex justify-content-between flex-column mb-5 gap-3">
-              <Dice />
-              <LeaderboardMenu />
-              <ChakraLink
-                as={Link}
-                to={"/history"}
-                className="text-black"
-                textDecoration="none"
-              >
-                <Log />
-              </ChakraLink>
-              <Players/>
-            </Box>
-          </Box>
-          <BottomNavbar />
-        </>
-      )}
-    </Box>
-  );
+  <Layout>
+    <img src="../images/logo.png" alt="" 
+    className='w-80 md:w-auto mx-auto'
+    />
+    <motion.div
+     initial={{ opacity: 0, scale: 0.5 }}
+     animate={{ opacity: 1, scale: 1 }}
+     transition={{ duration: 0.3 }}
+    >
+  <Carousel/>
+    <Menu/>
+    </motion.div>
+  
+  </Layout>
+  )
 }
 
-export default Home;
+export default Home
