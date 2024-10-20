@@ -1,16 +1,18 @@
 import React from 'react'
-import BilliardBall from '../components/lottiefiles/billiardBall.json'
+import Layout from '../components/Layout'
+import { useNavigate } from 'react-router-dom'
 import Lottie from 'lottie-react'
+import LoadingAnimation from "../lottie/billiardBall.json"
 
 function Landing() {
-    setTimeout(function() {
-        window.location = '/home'; // Replace with your desired URL
-      }, 3000);
+  const navigate = useNavigate()
+  setTimeout(()=>{
+    navigate('/home')
+  },6000)
   return (
+    <div className='max-w-7xl flex items-center justify-center h-screen'>
+      <Lottie animationData={LoadingAnimation}/>
 
-    <div className='d-flex justify-content-center flex-column text-center container p-5'>
-        <h1 className='card__name text-white mt-5'>Let's Play!</h1>
-        <Lottie animationData={BilliardBall} />
     </div>
   )
 }
