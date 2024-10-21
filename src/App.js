@@ -8,6 +8,7 @@ import History from './pages/History';
 import SelectPlayer from './pages/SelectPlayer';
 import Match from './pages/Match';
 import AddPlayer from './pages/AddPlayer';
+import Podium from './pages/Podium';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/select-player' element={<SelectPlayer/>}/>
       <Route path='/match/:id' element={<Match/>}/>
       <Route path='/add-player' element={<AddPlayer/>}/>
+      <Route path='/podium' element={<Podium/>}/>
 
     </Routes>
    </Router>

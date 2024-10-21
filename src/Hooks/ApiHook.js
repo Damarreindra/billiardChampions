@@ -120,3 +120,13 @@ export const addPlayer =async(username, photoUrl)=>{
         
     }
 }
+
+export const fetchChamps=async()=>{
+    try {
+        const response = await fetch('https://8.215.1.120/api/players/getChamps')
+        const result = await response.json()
+        return result
+    } catch (error) {
+        alert(error.message)
+    }
+}

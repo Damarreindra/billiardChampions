@@ -61,7 +61,7 @@ function SelectPlayer() {
             <div className="flex space-x-4">
               {players &&
                 players.map((item) => (
-                  <div className="px-3 border border-gray-200 rounded-xl shadow-inner mt-3 text-center">
+                  <div className="px-3 border border-gray-200 rounded-xl shadow-inner mt-3 text-center flex flex-col items-center justify-center bg-white">
                     <h1 className="mt-2">{item.username}</h1>
                     <img src={item.photoUrl} className="max-w-24 " alt="" />
                     <button>
@@ -91,7 +91,7 @@ function SelectPlayer() {
                     players && players.find((player) => player._id === item);
                   if (!foundedPlayer) return null;
                   return (
-                    <div className="px-3 border border-gray-200 rounded-xl shadow-inner mt-3 text-center duration-300 ease-in-out">
+                    <div className="px-3 border border-gray-200 rounded-xl shadow-inner mt-3 text-center duration-300 ease-in-out bg-white">
                       <h1 className="mt-2">{foundedPlayer.username}</h1>
                       <img
                         src={foundedPlayer.photoUrl}

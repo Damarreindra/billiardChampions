@@ -4,6 +4,7 @@ import { fetchMatches } from "../Hooks/ApiHook";
 import { formatWib } from "../Hooks/Utils";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom'; 
 
 function History() {
   const [history, setHistory] = useState([]);
@@ -23,7 +24,7 @@ function History() {
 
   return (
     <SafescreenLayout title={"History"}>
-      <div className="flex flex-col gap-2 pb-5">
+      <div className="flex flex-col gap-2 pb-5 ">
       {history.length === 0  ? (
                   <h2 className="text-center text-gray-500">No games</h2>
 
@@ -32,10 +33,16 @@ function History() {
         history
           .sort((a, b) => new Date(b.date) - new Date(a.date))
           .map((item, index) => (
-            <motion.Link
+            <motion.div
+            initial={{ y: -100, opacity: 0 }} // Initial position (above the screen)
+            animate={{ y: 0, opacity: 1 }} // Final position (normal)
+            exit={{ y: -100, opacity: 0 }} // Exit animation (go back above the screen)
+            transition={{ duration: 0.5 }} 
+            >
+            <Link
               key={index}
               to={`/match/${item._id}`}
-              className="border border-gray-200 rounded-xl p-3 relative flex flex-col shadow-lg"
+              className="border border-gray-200 rounded-xl p-3 relative flex flex-col shadow-inner bg-white"
               initial={{ y: -100, opacity: 0 }} 
               animate={{ y: 0, opacity: 1 }} 
               exit={{ y: -100, opacity: 0 }} 
@@ -83,7 +90,8 @@ function History() {
                     </div>
                   ))}
               </div>
-            </motion.Link>
+            </Link>
+            </motion.div>
           ))}
           </div>
     </SafescreenLayout>

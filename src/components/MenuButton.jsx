@@ -5,7 +5,7 @@ function MenuButton({image, title, href}) {
   return (
     <Link to={href} className='flex items-center gap-3 bg-white rounded-xl min-h-24 w-full p-3 shadow-xl'>
          <img src={image} className='w-20' alt="" />
-        <h1 className='text-xl font-bold'>{title}</h1>
+        <h1 className='text-xl font-semibold'>{title}</h1>
        
     </Link>
   )

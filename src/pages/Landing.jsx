@@ -10,9 +10,8 @@ function Landing() {
     navigate('/home')
   },6000)
   return (
-    <div className='max-w-7xl flex items-center justify-center h-screen'>
+    <div className='max-w-7xl flex items-center justify-center h-screen overflow-hidden  mx-auto'>
       <Lottie animationData={LoadingAnimation}/>
-
     </div>
   )
 }

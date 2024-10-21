@@ -59,9 +59,6 @@ function Match() {
     }
   };
 
- console.log('====================================');
- console.log(match);
- console.log('====================================');
 
 const winner = match?.players?.sort((a,b)=>b.score - a.score)
 
@@ -80,9 +77,10 @@ const addWinner = async()=>{
 
   if (loading)
     return (
-      <SafescreenLayout title={"Billiard Match"}>
+        <div className="min-h-screen">
         <Lottie animationData={LoadingAnimation} />
-      </SafescreenLayout>
+        </div>
+    
     );
 
   return (
@@ -116,19 +114,21 @@ const addWinner = async()=>{
           <div className="grid grid-cols-2  gap-3">
             {match &&
               match.players.map(({ player, score }) => (
-                <div className="px-3 border border-gray-200 rounded-xl shadow-inner mt-3 text-center flex flex-col items-center">
+                <div className="px-3 border border-gray-200 rounded-xl shadow-inner bg-white mt-3 text-center flex flex-col items-center">
                   <h1 className="mt-2">{player.username}</h1>
                   <img src={player.photoUrl} className="max-w-24 " alt="" />
                   <h1 className="mt-2 text-gray-500 font-bold">{score}</h1>
                   <div className="flex items-center justify-center gap-3 p-2">
                     <button
-                      className="text-2xl text-orange-500"
+                      className="text-2xl text-orange-500 disabled:text-gray-400"
                       onClick={() => addScore(player._id)}
+                      disabled={match?.winner ? true : false}
                     >
                       <IoMdAddCircle />
                     </button>
-                    <button className="text-xl text-orange-500" 
+                    <button className="text-xl text-orange-500 disabled:text-gray-400" 
                     onClick={()=>substractScore(player._id)}
+                    disabled={match?.winner ? true : false}
                     >
                       <FaCircleMinus />
                     </button>

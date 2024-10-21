@@ -19,6 +19,7 @@ function AddPlayer() {
             setProfilePict(file)
         }
     }
+
     
     const handleSubmit=async(e)=>{
         const data = new FormData();
@@ -55,12 +56,12 @@ function AddPlayer() {
          transition={{ duration: 0.3 }} 
         >
             <h1 className='mb-1'>Champion Name</h1>
-            <input type="text" className='p-3 border border-gray-300 w-full rounded-xl' 
+            <input type="text" className='p-3 border border-orange-300 w-full bg-white shadow-inner rounded-xl' 
             placeholder='Masukan Nama'
             onChange={(e)=>setUsername(e.target.value)}
             />
              <h1 className='mb-1 mt-2'>Photo</h1>
-             <div className='border border-gray-300 p-3 rounded-xl'>
+             <div className='border border-orange-300 p-3 rounded-xl bg-white shadow-inner'>
             <input type="file" id='fileInput' className='p-3 border border-gray-300 w-full rounded-xl hidden' 
             placeholder='Masukan Nama'
             onChange={handleChange}
@@ -74,7 +75,7 @@ function AddPlayer() {
             </div>
 
             <button onClick={handleSubmit}
-            className='p-3 bg-orange-500 shadow-lg text-white rounded-full mx-auto w-full mt-3 disabled:bg-gray-300'
+            className='p-3 bg-orange-500 shadow text-white rounded-full mx-auto w-full mt-3 disabled:bg-gray-300'
             disabled={!preview || !username}
             >
                 Add Player
