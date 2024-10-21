@@ -2,7 +2,7 @@
 
 export const fetchPlayer = async()=>{
     try {
-        const response = await fetch("http://8.215.1.120:3000/api/players")
+        const response = await fetch("https://8.215.1.120/api/players")
         const data = await response.json()
         return data
     } catch (error) {
@@ -15,7 +15,7 @@ export const fetchPlayer = async()=>{
 export const startMatch = async(players, venue)=>{
     try {
         if(players.length === 0) return;
-        const response = await fetch('http://8.215.1.120:3000/api/game',{
+        const response = await fetch('https://8.215.1.120/api/game',{
             method: "POST",
             headers:{
                 'Accept': 'application/json',
@@ -38,7 +38,7 @@ export const startMatch = async(players, venue)=>{
 
 export const fetchMatches =async()=>{
     try {
-        const response = await fetch('http://8.215.1.120:3000/api/game')
+        const response = await fetch('https://8.215.1.120/api/game')
         const data = await response.json()
         return data
     } catch (error) {
@@ -49,7 +49,7 @@ export const fetchMatches =async()=>{
 
 export const fetchMatchById =async(id)=>{
     try {
-        const response = await fetch(`http://8.215.1.120:3000/api/game/${id}`)
+        const response = await fetch(`https://8.215.1.120/api/game/${id}`)
         const data = await response.json()
         return data
     } catch (error) {
@@ -59,7 +59,7 @@ export const fetchMatchById =async(id)=>{
 
 export const updateScore = async(id, score, matchId)=>{
     try {
-        const response = await fetch('http://8.215.1.120:3000/api/game/updateScore',{
+        const response = await fetch('https://8.215.1.120/api/game/updateScore',{
             method: "PATCH",
             headers:{
                 'Accept': 'application/json',
@@ -80,7 +80,7 @@ export const updateScore = async(id, score, matchId)=>{
 
 export const getWinner=async(matchId, playerId)=>{
     try{
-        const response = await fetch("http://8.215.1.120:3000/api/game/getWinner",{
+        const response = await fetch("https://8.215.1.120/api/game/getWinner",{
             method:"PATCH",
             headers:{
                 "Accept": 'application/json',
@@ -100,7 +100,7 @@ export const getWinner=async(matchId, playerId)=>{
 
 export const addPlayer =async(username, photoUrl)=>{
     try {
-        const response = await fetch("http://8.215.1.120:3000/api/players",{
+        const response = await fetch("https://8.215.1.120/api/players",{
             method:"POST",
             headers:{
                 "Accept": 'application/json',
