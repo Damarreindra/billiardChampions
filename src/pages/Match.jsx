@@ -21,6 +21,7 @@ function Match() {
       const response = await fetchMatchById(id);
       if (response) {
         setMatch(response);
+        setLoading(false);
       }
     } catch (error) {
       alert(error.message);
@@ -31,11 +32,6 @@ function Match() {
     fetchMatch();
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  }, []);
 
   const addScore = async (playerId) => {
     try {
@@ -100,7 +96,7 @@ const addWinner = async()=>{
           </div>
           <h1 className="text-sm text-gray-400">
             {" "}
-            {formatWib(new Date(match.date))}
+            {match.date ? formatWib(new Date(match.date)) : "Date not available"}
           </h1>
         </motion.div>
 

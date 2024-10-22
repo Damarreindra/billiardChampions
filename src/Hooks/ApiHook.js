@@ -63,6 +63,9 @@ export const fetchMatchById =async(id)=>{
                 Authorization:`Bearer ${token}`
             }
         })
+        if(!response.ok){
+            window.location='/home'
+        }
         const data = await response.json()
         return data
     } catch (error) {
@@ -168,6 +171,29 @@ export const login=async(username, password)=>{
         if(!response.ok){
             const result = await response.json()
 
+            throw new Error(result.message)
+        }
+        const result = await response.json()
+        return result
+    }catch(error){
+        alert(error.message)
+    }
+}
+
+export const deleteMatch=async(matchId, winnerId)=>{
+    try{
+        const response = await fetch("https://8.215.1.120/api/game",{
+            method:"DELETE",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+                Authorization:`Bearer ${token}`
+
+            },
+            body: JSON.stringify({matchId:matchId, winnerId:winnerId})
+        })
+        if(!response.ok){
+            const result = await response.json()
             throw new Error(result.message)
         }
         const result = await response.json()
