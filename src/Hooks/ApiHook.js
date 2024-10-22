@@ -1,8 +1,12 @@
 
-
+const token = localStorage.getItem('token')
 export const fetchPlayer = async()=>{
     try {
-        const response = await fetch("https://8.215.1.120/api/players")
+        const response = await fetch("https://8.215.1.120/api/players",{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
         const data = await response.json()
         return data
     } catch (error) {
@@ -19,7 +23,8 @@ export const startMatch = async(players, venue)=>{
             method: "POST",
             headers:{
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization:`Bearer ${token}`
             },
             body: JSON.stringify({playerIds: players, venue: venue})
         })
@@ -38,7 +43,11 @@ export const startMatch = async(players, venue)=>{
 
 export const fetchMatches =async()=>{
     try {
-        const response = await fetch('https://8.215.1.120/api/game')
+        const response = await fetch('https://8.215.1.120/api/game',{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
         const data = await response.json()
         return data
     } catch (error) {
@@ -49,7 +58,11 @@ export const fetchMatches =async()=>{
 
 export const fetchMatchById =async(id)=>{
     try {
-        const response = await fetch(`https://8.215.1.120/api/game/${id}`)
+        const response = await fetch(`https://8.215.1.120/api/game/${id}`,{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
         const data = await response.json()
         return data
     } catch (error) {
@@ -63,8 +76,11 @@ export const updateScore = async(id, score, matchId)=>{
             method: "PATCH",
             headers:{
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization:`Bearer ${token}`
+
             },
+           
             body: JSON.stringify({playerId: id, score: score, matchId: matchId})
         })
         if (!response.ok) {
@@ -84,7 +100,9 @@ export const getWinner=async(matchId, playerId)=>{
             method:"PATCH",
             headers:{
                 "Accept": 'application/json',
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                Authorization:`Bearer ${token}`
+
             },
             body: JSON.stringify({matchId:matchId, playerId: playerId})
         })
@@ -104,7 +122,9 @@ export const addPlayer =async(username, photoUrl)=>{
             method:"POST",
             headers:{
                 "Accept": 'application/json',
-                "Content-Type": 'application/json'
+                "Content-Type": 'application/json',
+                Authorization:`Bearer ${token}`
+
             },
             body:JSON.stringify({username: username, photoUrl:photoUrl, wins:0})
         })
@@ -123,10 +143,36 @@ export const addPlayer =async(username, photoUrl)=>{
 
 export const fetchChamps=async()=>{
     try {
-        const response = await fetch('https://8.215.1.120/api/players/getChamps')
+        const response = await fetch('https://8.215.1.120/api/players/getChamps',{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
         const result = await response.json()
         return result
     } catch (error) {
+        alert(error.message)
+    }
+}
+
+export const login=async(username, password)=>{
+    try{
+        const response = await fetch("https://8.215.1.120/api/auth/login",{
+            method:"POST",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({username:username, password:password})
+        })
+        if(!response.ok){
+            const result = await response.json()
+
+            throw new Error(result.message)
+        }
+        const result = await response.json()
+        return result
+    }catch(error){
         alert(error.message)
     }
 }

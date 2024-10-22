@@ -9,6 +9,7 @@ import SelectPlayer from './pages/SelectPlayer';
 import Match from './pages/Match';
 import AddPlayer from './pages/AddPlayer';
 import Podium from './pages/Podium';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/match/:id' element={<Match/>}/>
       <Route path='/add-player' element={<AddPlayer/>}/>
       <Route path='/podium' element={<Podium/>}/>
+      <Route path='/login' element={<Login/>}/>
 
     </Routes>
    </Router>

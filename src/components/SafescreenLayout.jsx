@@ -4,6 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function SafescreenLayout({children, title, venue}) {
     const navigate = useNavigate()
+    const token = localStorage.getItem("token")
+    if(!token){
+      window.location='/login'
+    }
   return (
     <>
     <nav>
