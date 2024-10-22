@@ -17,8 +17,8 @@ function Layout({ children }) {
   }
   return (
     <div
-      className="min-h-screen max-w-7xl mx-auto py-12 px-2 flex flex-col items-center overflow-hidden gap-6 relative"
-      style={{
+    className="min-h-screen max-w-7xl mx-auto py-12 px-2 flex flex-col items-center gap-6 relative overflow-hidden"     
+     style={{
         backgroundImage: `url(${BackgroundImage})`,
         backgroundSize: "cover",
       }}

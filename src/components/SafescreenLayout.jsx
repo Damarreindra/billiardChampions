@@ -11,7 +11,7 @@ function SafescreenLayout({children, title, venue}) {
   return (
     <>
     <nav>
-        <div className='max-w-7xl mx-auto py-3 px-5 md:py-6 flex flex-row border-b border-gray-200 '>
+        <div className='max-w-7xl bg-white mx-auto py-3 px-5 md:py-6 flex flex-row border-b border-gray-200 '>
             <Link onClick={()=>navigate(-1)}>
             <IoMdArrowRoundBack className='text-orange-500 text-2xl '/>
             </Link>
@@ -21,8 +21,8 @@ function SafescreenLayout({children, title, venue}) {
             
         </div>
     </nav>
-    <main className='overflow-hidden bg-gray-100 h-screen'>
-    <div className='max-w-80 mt-5 mx-auto overflow-hidden '>
+    <main className='overflow-hidden bg-gray-100 '>
+    <div className='max-w-80 mt-5 mx-auto overflow-hidden'>
     {children}
     </div>
     </main>
